@@ -1,0 +1,256 @@
+
+/* Note for text colors:
+
+1. "Verified Graduate" has the same color as the person's name with 50% opacity
+2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity */
+
+/* ## Typography
+
+### Body Copy
+
+- Font size: 13px */
+
+/* font-family: 'Barlow Semi Condensed', sans-serif; */
+/* - Weights: 500, 600 */
+
+
+/* 1rem ====> 15px
+1em ====> font-size of parent */
+
+
+:root {
+    --primary-color-violet:hsl(263, 55%, 52%);
+    --primary-color-grayish-blue: hsl(217, 19%, 35%);
+    --primary-color-blackish-blue:hsl(219, 29%, 14%);
+    /* White: hsl(0, 0%, 100%); */
+    --neutral-color-light-gray:hsl(0, 0%, 81%);
+    --neutral-color-grayish-blue:hsl(210, 46%, 95%);
+    font-size: 13px;
+}
+
+
+/* Typography stying */
+*{
+    margin:0;
+    box-sizing: border-box; 
+    
+}
+
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background-color: var(--neutral-color-light-gray);
+    padding: 2em 1em 2em 1em;
+}
+
+img {
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 2.5em;
+    height: 2.5em;
+    flex: 0 0 2em;
+}
+
+h2{
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 1em;
+    flex-basis: 80%;
+}
+
+.spanFirst {
+    color:hsla(0, 0%, 100%, .5);
+    font-size: .9rem;
+    font-weight: 500;
+    
+}
+
+
+p{
+    color:hsl(0, 0%, 100%);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.1em;
+    margin-top: 0.8em;
+    word-spacing: 0.1em;
+}
+
+.lineBreak {
+    display: inline;
+}
+.lineBreak::before {
+    content: "\a ";
+    white-space: pre;
+}
+.secondParagraph {
+    font-size: 1rem;
+    font-weight: 500;
+    color:hsl(0, 0%, 100%, .7);
+}
+
+/* Media query to end the line break */
+
+@media (min-width: 400px) {
+    .lineBreak::before {
+        content: "";
+    }
+}
+
+
+/* Styling for grid 3 and 5 start */
+.whiteH2{
+    color:hsl(217, 19%, 35%);
+    
+}
+
+.spanSecond {
+    color:hsla(217, 19%, 35%, 0.5);
+}
+
+.whiteP1{
+    color:hsl(217, 19%, 35%);
+}
+
+.whiteP2{
+    color:hsla(217, 19%, 35%, 0.7);
+}
+
+/* Styling for grid 3 and 5 end */
+
+
+
+/* Class Grid styling */
+
+.firstGrid {
+    background-color: var(--primary-color-violet);
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+
+.firstGrid::before {
+    content:url(./images/bg-pattern-quotation.svg);
+    font-size:2em;
+    position:absolute;
+    right: 1.2em;
+    top: 0;
+    opacity: 0.5;
+    
+    
+}
+
+.secondGrid {
+    background-color: var(--primary-color-grayish-blue);
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.thirdGrid {
+    background-color: var(--neutral-color-grayish-blue);
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.fourthGrid {
+    background-color: var(--primary-color-blackish-blue);
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.fifthGrid {
+    background-color: var(--neutral-color-grayish-blue);
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.firstGrid,
+.secondGrid,
+.thirdGrid,
+.fourthGrid,
+.fifthGrid {
+    border-radius: 5px;
+    padding: 2em 2em 2em 2.2em;
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+@media (min-width:1000px) {
+
+    body,
+    html {
+        height:100%;
+        width:100%;
+    }
+
+    body {
+        padding:10%;
+        margin:0,
+    }
+
+    h2 {
+        flex-basis: auto;
+    }
+
+    p{
+        font-size: 1.3rem;
+    }
+
+    .secondParagraph{
+        font-size: .9rem;
+    }
+
+    /* Grid layout start */
+    .containerGrid {
+        align-self: center;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 1em;
+    }
+
+    .firstGrid{
+        grid-column-start: 1;
+        grid-column-end:3;
+        margin: 0;
+    }
+    .secondGrid{
+        margin:0;
+    }
+    .thirdGrid{ 
+        margin-bottom: 0;
+    
+    }
+    .fourthGrid{
+        grid-column-start: 2;
+        grid-column-end: 4;
+        margin-bottom: 0;
+    }
+
+    .fifthGrid {
+        grid-column-start: 4;
+        grid-column-end:5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        padding-bottom:2em;
+    }
+    /* Grid layout ends */
+
+    .whiteP1{
+        margin-top:0;
+    }
+
+    .whiteP2{
+        margin-top:0;
+    }
+
+
+}
